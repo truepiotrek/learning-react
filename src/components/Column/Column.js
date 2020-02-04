@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 
 class Column extends React.Component {
     render() {
-    return (
-        <section className={styles.component}>
-            <h3 className={styles.title}>{this.props.colTitle}</h3>
-        </section>
-    )
+        return (
+            <section className={styles.component}>
+                <h3 className={styles.title}>{this.props.title}</h3>
+            </section>
+        );
     }
 }
 
 Column.propTypes = {
-    colTitle: PropTypes.node,
+    title: PropTypes.node,
 }
 export default Column;

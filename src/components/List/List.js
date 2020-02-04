@@ -8,28 +8,34 @@ import ReactHtmlParser from 'react-html-parser';
 
 
 class List extends React.Component {
+    state = {
+        columns: this.props.columns || [],
+    }
+
     static propTypes = {
         title: PropTypes.node.isRequired,
         description: PropTypes.node,
         columns: PropTypes.array,
     }
+
     static defaultProps = {
         description: settings.defaultListDescription,
     }
+
     render() {
-    return (
-        <section className={styles.component}>
-            <Hero titleText={this.props.title} heroImgSrc={this.props.imgSrc} />
-            <div className={styles.description}>
-            {ReactHtmlParser(this.props.description)}
-            </div>
-            <div className={styles.columns}>
-                <Column colTitle="Brainz" />
-                <Column colTitle="Legz" />
-                <Column colTitle="Boobz" />
-            </div>
-        </section>
-    )
+        return (
+            <section className={styles.component}>
+                <Hero titleText={this.props.title} heroImgSrc={this.props.imgSrc} />
+                <div className={styles.description}>
+                {ReactHtmlParser(this.props.description)}
+                </div>
+                <div className={styles.columns}>
+                    {this.state.columns.map(({key, ...columnProps}) => (
+                        <Column key={key} {...columnProps} />
+                    ))}
+                </div>
+            </section>
+        );
     }
 }
 

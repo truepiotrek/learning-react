@@ -17,7 +17,7 @@ export const pageContents = {
 
 export const listData = {
   title: 'Things to do <sup>soon!</sup>',
-  description: 'Interesting things I want to check out really soon!',
+  description: 'Interesting things I want to check out soon!',
   image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   columns: [
     {
@@ -57,11 +57,11 @@ export const listData = {
       cards: [
         {
           key: 0,
-          title: 'The Witcher',
+          title: 'The Witcher 3: Dziki Gon',
         },
         {
           key: 1,
-          title: 'Skyrim',
+          title: 'Skyrim Ultra HD Refrigerator Edition',
         },
       ],
     },
