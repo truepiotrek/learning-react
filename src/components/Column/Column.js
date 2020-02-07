@@ -6,49 +6,52 @@ import Creator from '../Creator/Creator.js';
 import {settings} from '../../data/dataStore';
 import Icon from '../Icon/Icon.js';
 
-
 class Column extends React.Component {
-    state = {
-        cards: this.props.cards || [],
-    }
+  constructor(props) {
+    super(props);
 
-    addCard(title) {
-        console.log(title, 'dziala');
+    this.state = {
+      cards: this.props.cards || [],
+    };
+  }
 
-        let newState = this.state;
+  addCard(title) {
+    console.log(title, 'dziala');
 
-        newState.cards.push({
-            key: newState.cards.length,
-            title: title
-        });
+    let newState = this.state;
 
-        //console.log(newState);
+    newState.cards.push({
+      key: newState.cards.length,
+      title: title,
+    });
 
-        this.setState(newState);
+    //console.log(newState);
 
-    }
+    this.setState(newState);
+  }
 
-    render() {
-        return (
-            <section className={styles.component}>
-                <h3 className={styles.title}>
-                    {this.props.title}
-                    <span className={styles.icon}>
-                        <Icon name={this.props.icon}/>
-                    </span>
-                </h3>
-                {this.state.cards.map(function(item) {
-                    return <Card key={item.key} title={item.title} />
-                })}
-                <div className={styles.creator}>
-                    <Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
-                </div>
-            </section>
-        );
-    }
+  render() {
+    return (
+      <section className={styles.component}>
+        <h3 className={styles.title}>
+          {this.props.title}
+          <span className={styles.icon}>
+            <Icon name={this.props.icon}/>
+          </span>
+        </h3>
+        {this.state.cards.map(function (item) {
+          return <Card key={item.key} title={item.title}/>;
+        })}
+        <div className={styles.creator}>
+          <Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
+        </div>
+      </section>
+    );
+  }
 }
 
 Column.propTypes = {
-    title: PropTypes.node,
-}
+  title: PropTypes.node,
+};
+
 export default Column;

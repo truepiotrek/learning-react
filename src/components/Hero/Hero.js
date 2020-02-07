@@ -5,15 +5,15 @@ import ReactHtmlParser from 'react-html-parser';
 import {listData} from '../../data/dataStore';
 
 const Hero = props => (
-        <header className={styles.component}>
-            <h2 className={styles.title}>{ReactHtmlParser(props.titleText)}</h2>
-            <img className={styles.image} src={listData.image} />
-        </header>
-    );
-    
-    Hero.propTypes = {
-        titleText: PropTypes.node,
-    };
+  <header className={styles.component}>
+    <h2 className={styles.title}>{ReactHtmlParser(props.titleText)}</h2>
+    <img className={styles.image} src={listData.image} alt={''}/>
+  </header>
+);
+
+Hero.propTypes = {
+  titleText: PropTypes.node,
+};
 
 
 export default Hero;

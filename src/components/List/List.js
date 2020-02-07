@@ -9,55 +9,61 @@ import Creator from '../Creator/Creator.js';
 
 
 class List extends React.Component {
-    state = {
-        columns: this.props.columns || [],
-    }
+  constructor(props) {
+    super(props);
 
-    static propTypes = {
-        title: PropTypes.node.isRequired,
-        description: PropTypes.node,
-        columns: PropTypes.array,
-    }
+    this.state = {
+      columns: props.columns || [],
+    };
+  }
 
-    static defaultProps = {
-        description: settings.defaultListDescription,
-    }
 
-    addColumn(title) {
-        this.setState(state => (
-            {
-                columns: [
-                    ...state.columns,
-                    {
-                        key: state.columns.length ? state.columns[state.columns.length-1].key+1 : 0,
-                        title,
-                        icon: 'list-alt',
-                        cards: []
-                    }
-                ]
-            }
-        ));
-        }
+  static propTypes = {
+    title: PropTypes.node.isRequired,
+    description: PropTypes.node,
+    columns: PropTypes.array,
+    imgSrc: PropTypes.string,
+  };
 
-    render() {
-        return (
-            <section className={styles.component}>
-                <Hero titleText={this.props.title} heroImgSrc={this.props.imgSrc} />
-                <div className={styles.description}>
-                    {ReactHtmlParser(this.props.description)}
-                </div>
-                <div className={styles.columns}>
-                    {this.state.columns.map(function(item) {
-                        //let {cards, title, icon, ...otherProps} = item;
-                        return <Column key={item.key} cards={item.cards} title={item.title} icon={item.icon}/>;
-                    })}
-                </div>
-                <div className={styles.creator}>
-                    <Creator text={settings.columnCreatorText} action={title => this.addColumn(title)}/>
-                </div>
-            </section>
-        );
-    }
+  static defaultProps = {
+    description: settings.defaultListDescription,
+  };
+
+  addColumn(title) {
+    this.setState(state => (
+      {
+        columns: [
+          ...state.columns,
+          {
+            key: state.columns.length ? state.columns[state.columns.length - 1].key + 1 : 0,
+            title,
+            icon: 'list-alt',
+            cards: [],
+          },
+        ],
+      }
+    ));
+  }
+
+  render() {
+    return (
+      <section className={styles.component}>
+        <Hero titleText={this.props.title} heroImgSrc={this.props.imgSrc}/>
+        <div className={styles.description}>
+          {ReactHtmlParser(this.props.description)}
+        </div>
+        <div className={styles.columns}>
+          {this.state.columns.map(function (item) {
+            //let {cards, title, icon, ...otherProps} = item;
+            return <Column key={item.key} cards={item.cards} title={item.title} icon={item.icon}/>;
+          })}
+        </div>
+        <div className={styles.creator}>
+          <Creator text={settings.columnCreatorText} action={title => this.addColumn(title)}/>
+        </div>
+      </section>
+    );
+  }
 }
 
 export default List;
