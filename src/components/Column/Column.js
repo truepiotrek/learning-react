@@ -52,6 +52,8 @@ class Column extends React.Component {
 
 Column.propTypes = {
   title: PropTypes.node,
+  cards: PropTypes.string,
+  icon: PropTypes.node,
 };
 
 export default Column;
