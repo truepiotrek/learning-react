@@ -57,11 +57,11 @@ export const listData = {
       cards: [
         {
           key: 0,
-          title: 'The Witcher 3: Dziki Gon',
+          title: 'The Witcher',
         },
         {
           key: 1,
-          title: 'Skyrim Ultra HD Refrigerator Edition',
+          title: 'Skyrim',
         },
       ],
     },
