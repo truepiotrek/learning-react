@@ -25,7 +25,8 @@
     "react-dom": "^16.13.1",
     "react-html-parser": "^2.0.2",
     "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "shortid": "^2.2.15"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
