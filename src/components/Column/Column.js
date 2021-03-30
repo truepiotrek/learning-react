@@ -20,9 +20,9 @@ class Column extends React.Component {
     card: settings.cardCreatorText,
   }
 
-  static propTypes = {
+  /*static propTypes = {
     addCard: PropTypes.func,
-  };
+  };*/
 
   /*addCard(title) {
     console.log(title, 'dziala');
@@ -62,8 +62,10 @@ class Column extends React.Component {
 
 Column.propTypes = {
   title: PropTypes.node,
-  cards: PropTypes.string,
+  cards: PropTypes.array,
   icon: PropTypes.node,
+  addCard: PropTypes.func,
+
 };
 
 
